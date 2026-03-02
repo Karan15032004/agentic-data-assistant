@@ -1,0 +1,28 @@
+# Environment variables — NEVER upload this
+.env
+
+# Virtual environment — too large, unnecessary
+venv/
+
+# Generated database
+warehouse.db
+
+# Generated output files
+data/uploads/
+data/metadata_output.json
+data/quality_output.json
+data/query_output.json
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

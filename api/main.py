@@ -344,6 +344,14 @@ def query(request: QueryRequest):
     output_path = pathlib.Path(DATA_DIR) / "query_output.json"
     output_path.write_text(json.dumps(result, indent=2))
 
+    sql = result.get("sql_used", "")
+    first_word = sql.strip().split()[0].upper()
+
+    if first_word != "SELECT":
+        raise HTTPException(
+            status_code=400,
+            detail=f"Only SELECT queries are allowed. Got: {first_word}"
+        )
     return result
 
 
